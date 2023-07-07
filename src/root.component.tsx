@@ -1,23 +1,34 @@
+import React, { useState, useEffect } from "react";
 import "../dist/tailwind.css";
 import "../styles.css";
 import Login from "./component/login/Login";
 import Registro from "./component/registro/Registro";
 
 const Root = () => {
+  const [signIn, setSignIn] = useState(false);
+
+  const handlePassData = (signInValue) => {
+    console.log(signIn);
+    console.log(signInValue);
+    setSignIn(signInValue);
+  };
+
   return (
-    <div className="w-screen h-screen justify-center flex items-center flex-col bg-slate-500">
-      <div className="flex flex-col  items-center w-96 h-96 bg-slate-800 text-gray-400">
-        <div className="flex w-full h-3/4">
-          <Login />
+    <div className="flex justify-center items-center w-screen h-screen bg-black">
+      <div className={`w-3/5 flex h-3/5`}>
+        <div
+          className={` ${
+            signIn ? " translate-x-full" : ""
+          } duration-300 z-10 w-1/2  bg-red-500`}
+        >
+          <Login props={signIn} passData={handlePassData} />
         </div>
-        {/* <Registro /> */}
-        <div className="flex justify-around w-full h-1/4 items-center ">
-          <button className="bg-slate-700 p-2 rounded-md text-xl  hover:bg-slate-300 hover:text-slate-800">
-            Login
-          </button>
-          <button className="bg-slate-700 p-2 rounded-md text-xl  hover:bg-slate-300 hover:text-slate-800">
-            Register
-          </button>
+        <div
+          className={`${
+            signIn ? "-translate-x-full" : ""
+          } w-1/2 flex  duration-300 justify-around items-center bg-blue-500`}
+        >
+          <Registro props={signIn} />
         </div>
       </div>
     </div>

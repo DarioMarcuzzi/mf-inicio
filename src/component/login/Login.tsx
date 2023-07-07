@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Login = () => {
+const Login = ({ passData, props }) => {
+  const [propValue, setPropValue] = useState(props);
+  const handleSingInButton = () => {
+    const newPropValue = !propValue;
+    setPropValue(newPropValue);
+    passData(newPropValue);
+  };
+
   return (
-    <div className="w-full bg-black p-2 flex justify-center">
-      <form className=" w-full h-full flex items-center justify-center bg-slate-50">
-        <h1>Welcome! to your News page</h1>
-        <label>
-          Email
-          <input type="text" />
-        </label>
-      </form>
+    <div className="flex w-full h-full flex-col items-center justify-around">
+      <h1>Welcome back!</h1>
+      <p>fasda</p>
+      <button
+        className="bg-slate-600 p-3 px-8 rounded-full border-2 border-black  "
+        onClick={handleSingInButton}
+      >
+        SIGN IN
+      </button>
     </div>
   );
 };
