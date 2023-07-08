@@ -10,10 +10,10 @@ const Login = ({ passData, props }) => {
 
   return (
     <div className="flex w-full h-full flex-col items-center justify-around">
-      <h1>Welcome back!</h1>
-      <p>fasda</p>
+      <h1 className="text-4xl font-serif">Welcome back!</h1>
+      <p className="font-serif">fasda</p>
       <button
-        className="bg-slate-600 p-3 px-8 rounded-full border-2 border-black  "
+        className="bg-white font-serif  duration-200 hover:-translate-y-3  hover:bg-slate-200 shadow-md hover:shadow-slate-100 p-3 px-8 rounded-full  border-black  "
         onClick={handleSingInButton}
       >
         SIGN IN

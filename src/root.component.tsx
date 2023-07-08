@@ -14,19 +14,23 @@ const Root = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen bg-black">
-      <div className={`w-3/5 flex h-3/5`}>
+    <div className="flex justify-center items-center bg-orange-50 w-screen h-screen ">
+      <div className={`w-3/5 flex h-3/5  shadow-sm`}>
         <div
           className={` ${
-            signIn ? " translate-x-full" : ""
-          } duration-300 z-10 w-1/2  bg-red-500`}
+            signIn
+              ? " translate-x-full rounded-se-md  rounded-ee-md "
+              : " rounded-ss-md rounded-es-md"
+          } duration-300 z-10 w-1/2  bg-blue-500`}
         >
           <Login props={signIn} passData={handlePassData} />
         </div>
         <div
           className={`${
-            signIn ? "-translate-x-full" : ""
-          } w-1/2 flex  duration-300 justify-around items-center bg-blue-500`}
+            signIn
+              ? "-translate-x-full  rounded-ss-md  rounded-es-md"
+              : "rounded-se-md rounded-ee-md"
+          } w-1/2 flex  duration-300 justify-around items-center bg-slate-200 `}
         >
           <Registro props={signIn} />
         </div>
